@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <form name = "myForm" action = "{% url 'automation_app:get_result' %}" method="post">
+      {% csrf_token %}
+      <div class="jumbotron">
+      <div class="form-row align-items-center">
+        <div class="col-auto">
+          <label class="sr-only" for="IP">IP address</label>
+          <input type="text" name = "IP" class="form-control mb-2" id="inlineFormInput" placeholder="Enter device IP">
+        </div>
+        <div class="col-auto">
+          <input name = "submit" type="submit" value = "submit" class="btn btn-primary mb-2">
+        </div>
+      </div>
+      </div>
+    </form>
+  </body>
+</html>

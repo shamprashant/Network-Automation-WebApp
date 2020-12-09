@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Output Page</h1>
+    <a href="{% url 'automation_app:index' %}">Back to Index page</a>
+    {% for line in output %}
+      <p>{{line}}</p>
+    {% endfor %}
+  </body>
+</html>

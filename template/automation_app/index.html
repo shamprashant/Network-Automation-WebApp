@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script>
+      function validateForm() {
+        var x = document.forms["myForm"]["choice"].value;
+        x = parseInt(x);
+        if (x > 4) {
+          alert("Your input: " + x + "\nEnter correct input");
+          return false;
+        }
+      }
+    </script>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
+    <form name = "myForm" action = "{% url 'automation_app:running_config' %}" onsubmit="return validateForm()" method="post">
+      {% csrf_token %}
+      <div class="jumbotron">
+        <h1>Enter your choice</h1><br>
+        <p>Enter 1. to see the running configuration of your device</p>
+        <p>Enter 2 to back-up your device</p>
+        <p>Enter 3 to see the interfaces status of your device</p>
+        <p>Enter 4 to change the status of an interfaces of your device</p>
+      <div class="form-row align-items-center">
+        <div class="col-auto">
+          <label class="sr-only" for="inlineFormInput">Name</label>
+          <input type="text" name = "choice" class="form-control mb-2" id="inlineFormInput" placeholder="Enter choice here">
+        </div>
+        <div class="col-auto">
+          <input name = "submit" type="submit" value = "submit" class="btn btn-primary mb-2">
+        </div>
+      </div>
+      </div>
+    </form>
+  </body>
+</html>
